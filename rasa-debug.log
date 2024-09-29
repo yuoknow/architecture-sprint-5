@@ -1,143 +1,1048 @@
-2024-09-23 00:23:22 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
-2024-09-23 00:23:22 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
-2024-09-23 00:23:22 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
-2024-09-23 00:23:22 DEBUG    rasa.core.tracker_store  - Could not find tracker for conversation ID 'shreyas'.
-2024-09-23 00:23:22 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - Starting a new session for conversation ID 'shreyas'.
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_session_start rasa_events=[<rasa.shared.core.events.SessionStarted object at 0x34d759a30>, ActionExecuted(action: action_listen, policy: None, confidence: None)]
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
-2024-09-23 00:23:22 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x103c2ce80>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34d44a2e0>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
-2024-09-23 00:23:22 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
-2024-09-23 00:23:22 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'приветствие', 'confidence': 0.4273204803466797} parse_data_text=Привет
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 4 events.
-2024-09-23 00:23:22 DEBUG    rasa.core.actions.action  - Validating extracted slots:
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
-2024-09-23 00:23:22 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34d44a2e0>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}]
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'utter_greet'
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/lite/python/util.py:52: DeprecationWarning: jax.xla_computation is deprecated. Please use the AOT APIs.
+  from jax import xla_computation as _xla_computation
+2024-09-29 19:59:22 INFO     root  - Starting Rasa server on http://0.0.0.0:5005
+2024-09-29 19:59:22 INFO     rasa.core.processor  - Loading model models/20240922-235954-damp-promo.tar.gz...
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of the PyTorch model were not used when initializing the TF 2.0 model TFBertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing TFBertModel from a PyTorch model trained on another task or with another architecture (e.g. initializing a TFBertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing TFBertModel from a PyTorch model that you expect to be exactly identical (e.g. initializing a TFBertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of TFBertModel were initialized from the PyTorch model.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use TFBertModel for predictions without further training.
+2024-09-29 19:59:25 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 19:59:25 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/utils/train_utils.py:530: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss.
+  rasa.shared.utils.io.raise_warning(
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/shared/utils/io.py:99: UserWarning: 'evaluate_every_number_of_epochs=20' is greater than 'epochs=1'. No evaluation will occur.
+2024-09-29 19:59:28 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 19:59:28 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 19:59:32 INFO     root  - Rasa server is up and running.
+^C
+(rasa_env) azhmylev@MacBook-Pro rasa %
+(rasa_env) azhmylev@MacBook-Pro rasa % rasa run --enable-api --cors "*" --debug
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+2024-09-29 20:00:04 DEBUG    rasa.cli.utils  - Parameter 'credentials' not set. Using default location 'credentials.yml' instead.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+2024-09-29 20:00:05 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2024-09-29 20:00:05 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2024-09-29 20:00:05 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2024-09-29 20:00:05 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2024-09-29 20:00:05 DEBUG    jax._src.path  - etils.epath was not found. Using pathlib for file I/O.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/lite/python/util.py:52: DeprecationWarning: jax.xla_computation is deprecated. Please use the AOT APIs.
+  from jax import xla_computation as _xla_computation
+2024-09-29 20:00:06 DEBUG    rasa.core.utils  - Available web server routes:
+/conversations/<conversation_id:path>/messages     POST                           add_message
+/conversations/<conversation_id:path>/tracker/events POST                           append_events
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/webhooks/rest                                     GET                            custom_webhook_RestInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_RestInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id:path>/execute      POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id:path>/predict      POST                           predict
+/conversations/<conversation_id:path>/tracker/events PUT                            replace_events
+/conversations/<conversation_id:path>/story        GET                            retrieve_story
+/conversations/<conversation_id:path>/tracker      GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/conversations/<conversation_id:path>/trigger_intent POST                           trigger_intent
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2024-09-29 20:00:06 INFO     root  - Starting Rasa server on http://0.0.0.0:5005
+2024-09-29 20:00:06 DEBUG    rasa.core.utils  - Using the default number of Sanic workers (1).
+2024-09-29 20:00:07 DEBUG    rasa.telemetry  - Skipping telemetry reporting: no license hash found.
+2024-09-29 20:00:07 DEBUG    rasa.core.tracker_store  - Connected to InMemoryTrackerStore.
+2024-09-29 20:00:07 DEBUG    rasa.core.lock_store  - Connected to lock store 'InMemoryLockStore'.
+2024-09-29 20:00:07 DEBUG    rasa.core.nlg.generator  - Instantiated NLG to 'TemplatedNaturalLanguageGenerator'.
+2024-09-29 20:00:07 INFO     rasa.core.processor  - Loading model models/20240922-235954-damp-promo.tar.gz...
+2024-09-29 20:00:07 DEBUG    rasa.engine.storage.local_model_storage  - Extracted model to '/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/tmplqnu4wnr'.
+2024-09-29 20:00:07 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' loading 'NLUMessageConverter.load' and kwargs: '{}'.
+2024-09-29 20:00:07 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' loading 'WhitespaceTokenizer.load' and kwargs: '{}'.
+2024-09-29 20:00:07 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' loading 'RegexFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:00:07 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RegexFeaturizer1' was requested for reading.
+2024-09-29 20:00:07 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' loading 'LexicalSyntacticFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:00:07 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_LexicalSyntacticFeaturizer2' was requested for reading.
+2024-09-29 20:00:07 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' loading 'CountVectorsFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:00:07 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_CountVectorsFeaturizer3' was requested for reading.
+2024-09-29 20:00:07 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' loading 'LanguageModelFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:00:07 DEBUG    rasa.nlu.featurizers.dense_featurizer.lm_featurizer  - Loading Tokenizer and Model for bert
+2024-09-29 20:00:07 DEBUG    urllib3.connectionpool  - Starting new HTTPS connection (1): huggingface.co:443
+2024-09-29 20:00:07 DEBUG    urllib3.connectionpool  - https://huggingface.co:443 "HEAD /bert-base-cased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+2024-09-29 20:00:07 DEBUG    urllib3.connectionpool  - https://huggingface.co:443 "HEAD /bert-base-cased/resolve/main/config.json HTTP/1.1" 200 0
+Some weights of the PyTorch model were not used when initializing the TF 2.0 model TFBertModel: ['cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing TFBertModel from a PyTorch model trained on another task or with another architecture (e.g. initializing a TFBertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing TFBertModel from a PyTorch model that you expect to be exactly identical (e.g. initializing a TFBertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of TFBertModel were initialized from the PyTorch model.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use TFBertModel for predictions without further training.
+2024-09-29 20:00:09 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' loading 'DIETClassifier.load' and kwargs: '{}'.
+2024-09-29 20:00:09 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_DIETClassifier5' was requested for reading.
+2024-09-29 20:00:09 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/tmpgrhlo_fy/train_DIETClassifier5/DIETClassifier.tf_model with finetune_mode=False...
+2024-09-29 20:00:09 DEBUG    rasa.nlu.classifiers.diet_classifier  - You specified 'DIET' to train entities, but no entities are present in the training data. Skipping training of entities.
+2024-09-29 20:00:09 DEBUG    rasa.nlu.classifiers.diet_classifier  - Following metrics will be logged during training:
+2024-09-29 20:00:09 DEBUG    rasa.nlu.classifiers.diet_classifier  -   t_loss (total loss)
+2024-09-29 20:00:09 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_acc (intent acc)
+2024-09-29 20:00:09 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_loss (intent loss)
+2024-09-29 20:00:09 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:00:09 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+^C[2024-09-29 20:00:09 +0300] [30970] [ERROR] Experienced exception while trying to serve
+Traceback (most recent call last):
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/app.py", line 1204, in run
+    serve_single(server_settings)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/server/runners.py", line 206, in serve_single
+    serve(**server_settings)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/server/runners.py", line 130, in serve
+    loop.run_until_complete(app._server_event("init", "before"))
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1905, in _run_once
+    handle._run()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/app.py", line 2000, in _server_event
+    await self.dispatch(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/signals.py", line 191, in dispatch
+    return await dispatch
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/signals.py", line 161, in _dispatch
+    retval = await maybe_coroutine
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/app.py", line 1524, in _listener
+    await maybe_coro
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/run.py", line 290, in load_agent_on_start
+    app.ctx.agent = await agent.load_agent(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/agent.py", line 254, in load_agent
+    agent.load_model(model_path)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/agent.py", line 352, in load_model
+    self.processor = MessageProcessor(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/processor.py", line 105, in __init__
+    self.model_filename, self.model_metadata, self.graph_runner = self._load_model(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/processor.py", line 142, in _load_model
+    metadata, runner = loader.load_predict_graph_runner(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/loader.py", line 29, in load_predict_graph_runner
+    runner = graph_runner_class.create(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/runner/dask.py", line 51, in create
+    return cls(graph_schema, model_storage, execution_context, hooks)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/runner/dask.py", line 37, in __init__
+    self._instantiated_nodes: Dict[Text, GraphNode] = self._instantiate_nodes(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/runner/dask.py", line 60, in _instantiate_nodes
+    return {
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/runner/dask.py", line 61, in <dictcomp>
+    node_name: GraphNode.from_schema_node(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/graph.py", line 566, in from_schema_node
+    return cls(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/graph.py", line 392, in __init__
+    self._load_component()
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/graph.py", line 403, in _load_component
+    self._component: GraphComponent = constructor(  # type: ignore[no-redef]
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1125, in load
+    return cls._load(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1156, in _load
+    model = cls._load_model(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1249, in _load_model
+    model = cls._load_model_class(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1280, in _load_model_class
+    return cls.model_class().load(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/utils/tensorflow/models.py", line 445, in load
+    model.fit(data_generator, verbose=False)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/training.py", line 1685, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/util/traceback_utils.py", line 150, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 894, in __call__
+    result = self._call(*args, **kwds)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 942, in _call
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 763, in _initialize
+    self._variable_creation_fn    # pylint: disable=protected-access
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 171, in _get_concrete_function_internal_garbage_collected
+    concrete_function, _ = self._maybe_define_concrete_function(args, kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 166, in _maybe_define_concrete_function
+    return self._maybe_define_function(args, kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 396, in _maybe_define_function
+    concrete_function = self._create_concrete_function(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 300, in _create_concrete_function
+    func_graph_module.func_graph_from_py_func(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 1214, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 667, in wrapped_fn
+    out = weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 1189, in autograph_handler
+    return autograph.converted_call(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 439, in converted_call
+    result = converted_f(*effective_args, **kwargs)
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_filer2sslr67.py", line 15, in tf__train_function
+    retval_ = ag__.converted_call(ag__.ld(step_function), (ag__.ld(self), ag__.ld(iterator)), None, fscope)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 377, in converted_call
+    return _call_unconverted(f, args, kwargs, options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 459, in _call_unconverted
+    return f(*args)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/training.py", line 1268, in step_function
+    outputs = model.distribute_strategy.run(run_step, args=(data,))
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py", line 1316, in run
+    return self._extended.call_for_each_replica(fn, args=args, kwargs=kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py", line 2895, in call_for_each_replica
+    return self._call_for_each_replica(fn, args, kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py", line 3696, in _call_for_each_replica
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 689, in wrapper
+    return converted_call(f, args, kwargs, options=options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 377, in converted_call
+    return _call_unconverted(f, args, kwargs, options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 458, in _call_unconverted
+    return f(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/training.py", line 1249, in run_step
+    outputs = model.train_step(data)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/utils/tensorflow/models.py", line 161, in train_step
+    prediction_loss = self.batch_loss(batch_in)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1619, in batch_loss
+    ) = self._tf_layers[f"sequence_layer.{self.text_name}"](
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 689, in wrapper
+    return converted_call(f, args, kwargs, options=options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 439, in converted_call
+    result = converted_f(*effective_args, **kwargs)
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_file2t7pp1wt.py", line 45, in tf__call
+    (seq_sent_features, mask_combined_sequence_sentence) = ag__.converted_call(ag__.ld(self)._tf_layers[ag__.ld(self).FEATURE_COMBINING], ((ag__.ld(sequence_features), ag__.ld(sentence_features), ag__.ld(sequence_feature_lengths)),), None, fscope)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 377, in converted_call
+    return _call_unconverted(f, args, kwargs, options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 459, in _call_unconverted
+    return f(*args)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 689, in wrapper
+    return converted_call(f, args, kwargs, options=options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 439, in converted_call
+    result = converted_f(*effective_args, **kwargs)
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_filee1s_6gtg.py", line 35, in tf__call
+    sequence_features_combined = ag__.converted_call(ag__.ld(self)._combine_sequence_level_features, (ag__.ld(sequence_features), ag__.ld(mask_sequence), ag__.ld(training)), None, fscope)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 441, in converted_call
+    result = converted_f(*effective_args)
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_fileioi1k57u.py", line 38, in tf___combine_sequence_level_features
+    ag__.if_stmt(ag__.ld(self)._feature_types_present[ag__.ld(SEQUENCE)], if_body, else_body, get_state, set_state, ('do_return', 'retval_'), 2)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/operators/control_flow.py", line 1266, in if_stmt
+    _py_if_stmt(cond, body, orelse)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/operators/control_flow.py", line 1319, in _py_if_stmt
+    return body() if cond else orelse()
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_fileioi1k57u.py", line 21, in if_body
+    sequence_features_combined = ag__.converted_call(ag__.ld(self)._tf_layers[f'sparse_dense.{ag__.ld(SEQUENCE)}'], ((ag__.ld(sequence_features),),), dict(training=ag__.ld(training)), fscope)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 377, in converted_call
+    return _call_unconverted(f, args, kwargs, options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 458, in _call_unconverted
+    return f(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 689, in wrapper
+    return converted_call(f, args, kwargs, options=options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 427, in converted_call
+    converted_f = _convert_actual(target_entity, program_ctx)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 269, in _convert_actual
+    transformed, module, source_map = _TRANSPILER.transform(entity, program_ctx)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/transpiler.py", line 282, in transform
+    return self.transform_function(obj, user_context)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/transpiler.py", line 466, in transform_function
+    nodes, ctx = super(PyToPy, self).transform_function(fn, user_context)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/transpiler.py", line 342, in transform_function
+    node, source = parser.parse_entity(fn, future_features=future_features)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/parser.py", line 158, in parse_entity
+    source = dedent_block(original_source)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/parser.py", line 73, in dedent_block
+    for tok in token_gen:
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/tokenize.py", line 571, in _tokenize
+    token[:3] in single_quoted):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/bin/rasa", line 8, in <module>
+    sys.exit(main())
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/__main__.py", line 133, in main
+    cmdline_arguments.func(cmdline_arguments)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/cli/run.py", line 93, in run
+    rasa.run(**vars(args))
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/api.py", line 56, in run
+    rasa.core.run.serve_application(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/run.py", line 268, in serve_application
+    app.run(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/app.py", line 1204, in run
+    serve_single(server_settings)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/server/runners.py", line 206, in serve_single
+    serve(**server_settings)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/server/runners.py", line 130, in serve
+    loop.run_until_complete(app._server_event("init", "before"))
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1905, in _run_once
+    handle._run()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/app.py", line 2000, in _server_event
+    await self.dispatch(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/signals.py", line 191, in dispatch
+    return await dispatch
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/signals.py", line 161, in _dispatch
+    retval = await maybe_coroutine
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic/app.py", line 1524, in _listener
+    await maybe_coro
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/run.py", line 290, in load_agent_on_start
+    app.ctx.agent = await agent.load_agent(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/agent.py", line 254, in load_agent
+    agent.load_model(model_path)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/agent.py", line 352, in load_model
+    self.processor = MessageProcessor(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/processor.py", line 105, in __init__
+    self.model_filename, self.model_metadata, self.graph_runner = self._load_model(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/processor.py", line 142, in _load_model
+    metadata, runner = loader.load_predict_graph_runner(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/loader.py", line 29, in load_predict_graph_runner
+    runner = graph_runner_class.create(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/runner/dask.py", line 51, in create
+    return cls(graph_schema, model_storage, execution_context, hooks)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/runner/dask.py", line 37, in __init__
+    self._instantiated_nodes: Dict[Text, GraphNode] = self._instantiate_nodes(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/runner/dask.py", line 60, in _instantiate_nodes
+    return {
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/runner/dask.py", line 61, in <dictcomp>
+    node_name: GraphNode.from_schema_node(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/graph.py", line 566, in from_schema_node
+    return cls(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/graph.py", line 392, in __init__
+    self._load_component()
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/engine/graph.py", line 403, in _load_component
+    self._component: GraphComponent = constructor(  # type: ignore[no-redef]
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1125, in load
+    return cls._load(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1156, in _load
+    model = cls._load_model(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1249, in _load_model
+    model = cls._load_model_class(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1280, in _load_model_class
+    return cls.model_class().load(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/utils/tensorflow/models.py", line 445, in load
+    model.fit(data_generator, verbose=False)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/training.py", line 1685, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/util/traceback_utils.py", line 150, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 894, in __call__
+    result = self._call(*args, **kwds)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 942, in _call
+    self._initialize(args, kwds, add_initializers_to=initializers)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 763, in _initialize
+    self._variable_creation_fn    # pylint: disable=protected-access
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 171, in _get_concrete_function_internal_garbage_collected
+    concrete_function, _ = self._maybe_define_concrete_function(args, kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 166, in _maybe_define_concrete_function
+    return self._maybe_define_function(args, kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 396, in _maybe_define_function
+    concrete_function = self._create_concrete_function(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 300, in _create_concrete_function
+    func_graph_module.func_graph_from_py_func(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 1214, in func_graph_from_py_func
+    func_outputs = python_func(*func_args, **func_kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 667, in wrapped_fn
+    out = weak_wrapped_fn().__wrapped__(*args, **kwds)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py", line 1189, in autograph_handler
+    return autograph.converted_call(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 439, in converted_call
+    result = converted_f(*effective_args, **kwargs)
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_filer2sslr67.py", line 15, in tf__train_function
+    retval_ = ag__.converted_call(ag__.ld(step_function), (ag__.ld(self), ag__.ld(iterator)), None, fscope)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 377, in converted_call
+    return _call_unconverted(f, args, kwargs, options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 459, in _call_unconverted
+    return f(*args)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/training.py", line 1268, in step_function
+    outputs = model.distribute_strategy.run(run_step, args=(data,))
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py", line 1316, in run
+    return self._extended.call_for_each_replica(fn, args=args, kwargs=kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py", line 2895, in call_for_each_replica
+    return self._call_for_each_replica(fn, args, kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/distribute/distribute_lib.py", line 3696, in _call_for_each_replica
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 689, in wrapper
+    return converted_call(f, args, kwargs, options=options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 377, in converted_call
+    return _call_unconverted(f, args, kwargs, options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 458, in _call_unconverted
+    return f(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/training.py", line 1249, in run_step
+    outputs = model.train_step(data)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/utils/tensorflow/models.py", line 161, in train_step
+    prediction_loss = self.batch_loss(batch_in)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/nlu/classifiers/diet_classifier.py", line 1619, in batch_loss
+    ) = self._tf_layers[f"sequence_layer.{self.text_name}"](
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 689, in wrapper
+    return converted_call(f, args, kwargs, options=options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 439, in converted_call
+    result = converted_f(*effective_args, **kwargs)
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_file2t7pp1wt.py", line 45, in tf__call
+    (seq_sent_features, mask_combined_sequence_sentence) = ag__.converted_call(ag__.ld(self)._tf_layers[ag__.ld(self).FEATURE_COMBINING], ((ag__.ld(sequence_features), ag__.ld(sentence_features), ag__.ld(sequence_feature_lengths)),), None, fscope)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 377, in converted_call
+    return _call_unconverted(f, args, kwargs, options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 459, in _call_unconverted
+    return f(*args)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 689, in wrapper
+    return converted_call(f, args, kwargs, options=options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 439, in converted_call
+    result = converted_f(*effective_args, **kwargs)
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_filee1s_6gtg.py", line 35, in tf__call
+    sequence_features_combined = ag__.converted_call(ag__.ld(self)._combine_sequence_level_features, (ag__.ld(sequence_features), ag__.ld(mask_sequence), ag__.ld(training)), None, fscope)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 441, in converted_call
+    result = converted_f(*effective_args)
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_fileioi1k57u.py", line 38, in tf___combine_sequence_level_features
+    ag__.if_stmt(ag__.ld(self)._feature_types_present[ag__.ld(SEQUENCE)], if_body, else_body, get_state, set_state, ('do_return', 'retval_'), 2)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/operators/control_flow.py", line 1266, in if_stmt
+    _py_if_stmt(cond, body, orelse)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/operators/control_flow.py", line 1319, in _py_if_stmt
+    return body() if cond else orelse()
+  File "/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/__autograph_generated_fileioi1k57u.py", line 21, in if_body
+    sequence_features_combined = ag__.converted_call(ag__.ld(self)._tf_layers[f'sparse_dense.{ag__.ld(SEQUENCE)}'], ((ag__.ld(sequence_features),),), dict(training=ag__.ld(training)), fscope)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 377, in converted_call
+    return _call_unconverted(f, args, kwargs, options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 458, in _call_unconverted
+    return f(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+    outputs = call_fn(inputs, *args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+    return fn(*args, **kwargs)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 689, in wrapper
+    return converted_call(f, args, kwargs, options=options)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 427, in converted_call
+    converted_f = _convert_actual(target_entity, program_ctx)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py", line 269, in _convert_actual
+    transformed, module, source_map = _TRANSPILER.transform(entity, program_ctx)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/transpiler.py", line 282, in transform
+    return self.transform_function(obj, user_context)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/transpiler.py", line 466, in transform_function
+    nodes, ctx = super(PyToPy, self).transform_function(fn, user_context)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/transpiler.py", line 342, in transform_function
+    node, source = parser.parse_entity(fn, future_features=future_features)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/parser.py", line 158, in parse_entity
+    source = dedent_block(original_source)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/python/autograph/pyct/parser.py", line 73, in dedent_block
+    for tok in token_gen:
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/tokenize.py", line 571, in _tokenize
+    token[:3] in single_quoted):
+KeyboardInterrupt
+
+(rasa_env) azhmylev@MacBook-Pro rasa %
+(rasa_env) azhmylev@MacBook-Pro rasa % rasa run --enable-api --cors "*" --debug
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+2024-09-29 20:00:14 DEBUG    rasa.cli.utils  - Parameter 'credentials' not set. Using default location 'credentials.yml' instead.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+2024-09-29 20:00:16 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2024-09-29 20:00:16 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2024-09-29 20:00:16 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2024-09-29 20:00:16 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2024-09-29 20:00:16 DEBUG    jax._src.path  - etils.epath was not found. Using pathlib for file I/O.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/lite/python/util.py:52: DeprecationWarning: jax.xla_computation is deprecated. Please use the AOT APIs.
+  from jax import xla_computation as _xla_computation
+2024-09-29 20:00:17 DEBUG    rasa.core.utils  - Available web server routes:
+/conversations/<conversation_id:path>/messages     POST                           add_message
+/conversations/<conversation_id:path>/tracker/events POST                           append_events
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/webhooks/rest                                     GET                            custom_webhook_RestInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_RestInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id:path>/execute      POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id:path>/predict      POST                           predict
+/conversations/<conversation_id:path>/tracker/events PUT                            replace_events
+/conversations/<conversation_id:path>/story        GET                            retrieve_story
+/conversations/<conversation_id:path>/tracker      GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/conversations/<conversation_id:path>/trigger_intent POST                           trigger_intent
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2024-09-29 20:00:17 INFO     root  - Starting Rasa server on http://0.0.0.0:5005
+2024-09-29 20:00:17 DEBUG    rasa.core.utils  - Using the default number of Sanic workers (1).
+2024-09-29 20:00:17 DEBUG    rasa.telemetry  - Skipping telemetry reporting: no license hash found.
+2024-09-29 20:00:17 DEBUG    rasa.core.tracker_store  - Connected to InMemoryTrackerStore.
+2024-09-29 20:00:17 DEBUG    rasa.core.lock_store  - Connected to lock store 'InMemoryLockStore'.
+2024-09-29 20:00:17 DEBUG    rasa.core.nlg.generator  - Instantiated NLG to 'TemplatedNaturalLanguageGenerator'.
+2024-09-29 20:00:17 INFO     rasa.core.processor  - Loading model models/20240922-235954-damp-promo.tar.gz...
+2024-09-29 20:00:17 DEBUG    rasa.engine.storage.local_model_storage  - Extracted model to '/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/tmpcx5cb9s6'.
+2024-09-29 20:00:17 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' loading 'NLUMessageConverter.load' and kwargs: '{}'.
+2024-09-29 20:00:17 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' loading 'WhitespaceTokenizer.load' and kwargs: '{}'.
+2024-09-29 20:00:17 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' loading 'RegexFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:00:17 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RegexFeaturizer1' was requested for reading.
+2024-09-29 20:00:17 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' loading 'LexicalSyntacticFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:00:17 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_LexicalSyntacticFeaturizer2' was requested for reading.
+2024-09-29 20:00:17 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' loading 'CountVectorsFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:00:17 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_CountVectorsFeaturizer3' was requested for reading.
+2024-09-29 20:00:17 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' loading 'LanguageModelFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:00:17 DEBUG    rasa.nlu.featurizers.dense_featurizer.lm_featurizer  - Loading Tokenizer and Model for bert
+2024-09-29 20:00:17 DEBUG    urllib3.connectionpool  - Starting new HTTPS connection (1): huggingface.co:443
+2024-09-29 20:00:17 DEBUG    urllib3.connectionpool  - https://huggingface.co:443 "HEAD /bert-base-cased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+2024-09-29 20:00:18 DEBUG    urllib3.connectionpool  - https://huggingface.co:443 "HEAD /bert-base-cased/resolve/main/config.json HTTP/1.1" 200 0
+Some weights of the PyTorch model were not used when initializing the TF 2.0 model TFBertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing TFBertModel from a PyTorch model trained on another task or with another architecture (e.g. initializing a TFBertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing TFBertModel from a PyTorch model that you expect to be exactly identical (e.g. initializing a TFBertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of TFBertModel were initialized from the PyTorch model.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use TFBertModel for predictions without further training.
+2024-09-29 20:00:18 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' loading 'DIETClassifier.load' and kwargs: '{}'.
+2024-09-29 20:00:18 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_DIETClassifier5' was requested for reading.
+2024-09-29 20:00:18 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/tmp8aid_tox/train_DIETClassifier5/DIETClassifier.tf_model with finetune_mode=False...
+2024-09-29 20:00:18 DEBUG    rasa.nlu.classifiers.diet_classifier  - You specified 'DIET' to train entities, but no entities are present in the training data. Skipping training of entities.
+2024-09-29 20:00:18 DEBUG    rasa.nlu.classifiers.diet_classifier  - Following metrics will be logged during training:
+2024-09-29 20:00:18 DEBUG    rasa.nlu.classifiers.diet_classifier  -   t_loss (total loss)
+2024-09-29 20:00:18 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_acc (intent acc)
+2024-09-29 20:00:18 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_loss (intent loss)
+2024-09-29 20:00:18 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:00:18 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:00:22 DEBUG    rasa.utils.tensorflow.models  - Finished loading the model.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/utils/train_utils.py:530: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss.
+  rasa.shared.utils.io.raise_warning(
+2024-09-29 20:00:22 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' loading 'EntitySynonymMapper.load' and kwargs: '{}'.
+2024-09-29 20:00:22 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_EntitySynonymMapper6' was requested for reading.
+2024-09-29 20:00:22 DEBUG    rasa.nlu.extractors.entity_synonyms  - Failed to load ABCMeta from model storage. Resource 'train_EntitySynonymMapper6' doesn't exist.
+2024-09-29 20:00:22 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' loading 'ResponseSelector.load' and kwargs: '{}'.
+2024-09-29 20:00:22 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_ResponseSelector7' was requested for reading.
+2024-09-29 20:00:22 DEBUG    rasa.nlu.classifiers.diet_classifier  - Failed to load ABCMeta from model storage. Resource 'train_ResponseSelector7' doesn't exist.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/shared/utils/io.py:99: UserWarning: 'evaluate_every_number_of_epochs=20' is greater than 'epochs=1'. No evaluation will occur.
+2024-09-29 20:00:22 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_ResponseSelector7' was requested for reading.
+2024-09-29 20:00:22 DEBUG    rasa.nlu.selectors.response_selector  - Failed to load ResponseSelector from model storage. Resource 'train_ResponseSelector7' doesn't exist.
+2024-09-29 20:00:22 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' loading 'RegexMessageHandler.load' and kwargs: '{}'.
+2024-09-29 20:00:22 DEBUG    rasa.engine.graph  - Node 'domain_provider' loading 'DomainProvider.load' and kwargs: '{}'.
+2024-09-29 20:00:22 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'domain_provider' was requested for reading.
+2024-09-29 20:00:22 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' loading 'MemoizationPolicy.load' and kwargs: '{}'.
+2024-09-29 20:00:22 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_MemoizationPolicy0' was requested for reading.
+2024-09-29 20:00:22 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' loading 'RulePolicy.load' and kwargs: '{}'.
+2024-09-29 20:00:22 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RulePolicy1' was requested for reading.
+2024-09-29 20:00:22 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' loading 'TEDPolicy.load' and kwargs: '{}'.
+2024-09-29 20:00:22 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_TEDPolicy2' was requested for reading.
+2024-09-29 20:00:22 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/tmp8aid_tox/train_TEDPolicy2/ted_policy.tf_model with finetune_mode=False...
+2024-09-29 20:00:22 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:00:22 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:00:26 DEBUG    rasa.utils.tensorflow.models  - Finished loading the model.
+2024-09-29 20:00:26 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' loading 'RuleOnlyDataProvider.load' and kwargs: '{}'.
+2024-09-29 20:00:26 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RulePolicy1' was requested for reading.
+2024-09-29 20:00:26 DEBUG    rasa.engine.graph  - Node 'select_prediction' loading 'DefaultPolicyPredictionEnsemble.load' and kwargs: '{}'.
+2024-09-29 20:00:26 INFO     root  - Rasa server is up and running.
+2024-09-29 20:00:26 INFO     root  - Enabling coroutine debugging. Loop id 6416098928.
+2024-09-29 20:00:30 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
+2024-09-29 20:00:30 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
+2024-09-29 20:00:30 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
+2024-09-29 20:00:30 DEBUG    rasa.core.tracker_store  - Could not find tracker for conversation ID 'shreyas'.
+2024-09-29 20:00:30 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - Starting a new session for conversation ID 'shreyas'.
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_session_start rasa_events=[<rasa.shared.core.events.SessionStarted object at 0x34e2ba400>, ActionExecuted(action: action_listen, policy: None, confidence: None)]
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-09-29 20:00:30 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x17e6e65b0>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34e2c9e50>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-09-29 20:00:30 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-09-29 20:00:30 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'приветствие', 'confidence': 0.4273204803466797} parse_data_text=Привет
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 4 events.
+2024-09-29 20:00:30 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-09-29 20:00:30 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34e2c9e50>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'utter_greet'
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
 [state 1] user text: Привет | previous action name: action_listen
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
 [state 1] user intent: приветствие | previous action name: action_listen
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'utter_greet'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_documentation' based on user intent.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - Predicted next action 'utter_greet' with confidence 1.00.
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x34d759a90>]
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_greet rasa_events=[BotUttered('Привет! Как я могу вам помочь?', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_greet"}, 1727040202.3390772)]
-2024-09-23 00:23:22 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34d44a2e0>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}]
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
-[state 1] user intent: приветствие | previous action name: action_listen
-[state 2] user intent: приветствие | previous action name: utter_greet
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_suggest_tech_stack' based on user intent.
-2024-09-23 00:23:22 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
-2024-09-23 00:23:22 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
-2024-09-23 00:23:22 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
-2024-09-23 00:23:22 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
-2024-09-23 00:23:22 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
-2024-09-23 00:23:26 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
-2024-09-23 00:23:26 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
-2024-09-23 00:23:26 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
-2024-09-23 00:23:26 DEBUG    rasa.core.tracker_store  - Recreating tracker for id 'shreyas'
-2024-09-23 00:23:26 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x34d44af70>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34d44a6a0>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
-2024-09-23 00:23:26 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
-2024-09-23 00:23:26 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'микросервисы', 'confidence': 0.13507959246635437} parse_data_text=Что такое микросервисная архитектура
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 9 events.
-2024-09-23 00:23:26 DEBUG    rasa.core.actions.action  - Validating extracted slots:
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
-2024-09-23 00:23:26 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34d44a6a0>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}]
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.memoization  - There is no memorised next action
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'utter_greet'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_documentation' based on user intent.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - Predicted next action 'utter_greet' with confidence 1.00.
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x34e2ba460>]
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_greet rasa_events=[BotUttered('Привет! Как я могу вам помочь?', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_greet"}, 1727629230.353894)]
+2024-09-29 20:00:30 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34e2c9e50>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}]
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
 [state 1] user intent: приветствие | previous action name: action_listen
 [state 2] user intent: приветствие | previous action name: utter_greet
-[state 3] user text: Что такое микросервисная архитектура | previous action name: action_listen
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_suggest_tech_stack' based on user intent.
+2024-09-29 20:00:30 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-09-29 20:00:30 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-09-29 20:00:30 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-09-29 20:00:30 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-09-29 20:00:30 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
+2024-09-29 20:00:41 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
+2024-09-29 20:00:41 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
+2024-09-29 20:00:41 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
+2024-09-29 20:00:41 DEBUG    rasa.core.tracker_store  - Recreating tracker for id 'shreyas'
+2024-09-29 20:00:41 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x34e2534f0>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34e41f8b0>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-09-29 20:00:41 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-09-29 20:00:41 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'микросервисы', 'confidence': 0.14258264005184174} parse_data_text=Что такое микросервисы
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 9 events.
+2024-09-29 20:00:41 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-09-29 20:00:41 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34e41f8b0>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.memoization  - There is no memorised next action
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user text: Что такое микросервисы | previous action name: action_listen
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
 [state 1] user intent: приветствие | previous action name: action_listen
 [state 2] user intent: приветствие | previous action name: utter_greet
 [state 3] user intent: микросервисы | previous action name: action_listen
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_microservice_info'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_containerization' based on user intent.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - Predicted next action 'action_microservice_info' with confidence 1.00.
-2024-09-23 00:23:26 DEBUG    rasa.core.actions.action  - Calling action endpoint to run action 'action_microservice_info'.
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x34d759eb0>]
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_microservice_info rasa_events=[BotUttered('Микросервисная архитектура — это подход к разработке, когда приложение разделяется на независимые сервисы, взаимодействующие между собой.', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_microservices", "template": "utter_microservices"}, 1727040206.312007)]
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
-2024-09-23 00:23:26 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34d44a6a0>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_microservice_info'}}]
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_microservice_info'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_containerization' based on user intent.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - Predicted next action 'action_microservice_info' with confidence 1.00.
+2024-09-29 20:00:41 DEBUG    rasa.core.actions.action  - Calling action endpoint to run action 'action_microservice_info'.
+2024-09-29 20:00:41 ERROR    rasa.core.actions.action  - Failed to run custom action 'action_microservice_info'. Couldn't connect to the server at 'http://localhost:5055/webhook'. Is the server running? Error: Cannot connect to host localhost:5055 ssl:default [Connect call failed ('127.0.0.1', 5055)]
+2024-09-29 20:00:41 ERROR    rasa.core.processor  - Encountered an exception while running action 'action_microservice_info'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/aiohttp/connector.py", line 1025, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1065, in create_connection
+    raise exceptions[0]
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 1050, in create_connection
+    sock = await self._connect_sock(
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 961, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 500, in sock_connect
+    return await fut
+  File "/opt/homebrew/Cellar/python@3.9/3.9.20/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/selector_events.py", line 535, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 61] Connect call failed ('127.0.0.1', 5055)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/actions/action.py", line 780, in run
+    response: Any = await self.action_endpoint.request(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/utils/endpoints.py", line 174, in request
+    async with session.request(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/aiohttp/client.py", line 1197, in __aenter__
+    self._resp = await self._coro
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/aiohttp/client.py", line 581, in _request
+    conn = await self._connector.connect(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/aiohttp/connector.py", line 944, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/aiohttp/connector.py", line 1257, in _create_direct_connection
+    raise last_exc
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/aiohttp/connector.py", line 1226, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/aiohttp/connector.py", line 1033, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host localhost:5055 ssl:default [Connect call failed ('127.0.0.1', 5055)]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/processor.py", line 982, in _run_action
+    events = await action.run(
+  File "/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/actions/action.py", line 821, in run
+    raise RasaException(
+rasa.shared.exceptions.RasaException: Failed to execute custom action 'action_microservice_info'. Couldn't connect to the server at 'http://localhost:5055/webhook.
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x34e2baca0>]
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_microservice_info rasa_events=[]
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-09-29 20:00:41 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x34e41f8b0>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_microservice_info'}}]
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
 [state 1] user intent: приветствие | previous action name: action_listen
 [state 2] user intent: приветствие | previous action name: utter_greet
 [state 3] user intent: микросервисы | previous action name: action_listen
 [state 4] user intent: микросервисы | previous action name: action_microservice_info
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_monolith' based on user intent.
-2024-09-23 00:23:26 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
-2024-09-23 00:23:26 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
-2024-09-23 00:23:26 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
-2024-09-23 00:23:26 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
-2024-09-23 00:23:26 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_monolith' based on user intent.
+2024-09-29 20:00:41 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-09-29 20:00:41 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-09-29 20:00:41 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-09-29 20:00:41 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-09-29 20:00:41 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
+^C^L%                                                                                                                                                                             (rasa_env) azhmylev@MacBook-Pro rasa %
+(rasa_env) azhmylev@MacBook-Pro rasa % rasa run --enable-api --cors "*" --debug
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+2024-09-29 20:01:16 DEBUG    rasa.cli.utils  - Parameter 'credentials' not set. Using default location 'credentials.yml' instead.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+2024-09-29 20:01:17 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2024-09-29 20:01:17 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2024-09-29 20:01:17 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2024-09-29 20:01:17 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2024-09-29 20:01:18 DEBUG    jax._src.path  - etils.epath was not found. Using pathlib for file I/O.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/tensorflow/lite/python/util.py:52: DeprecationWarning: jax.xla_computation is deprecated. Please use the AOT APIs.
+  from jax import xla_computation as _xla_computation
+2024-09-29 20:01:19 DEBUG    rasa.core.utils  - Available web server routes:
+/conversations/<conversation_id:path>/messages     POST                           add_message
+/conversations/<conversation_id:path>/tracker/events POST                           append_events
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/webhooks/rest                                     GET                            custom_webhook_RestInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_RestInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id:path>/execute      POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id:path>/predict      POST                           predict
+/conversations/<conversation_id:path>/tracker/events PUT                            replace_events
+/conversations/<conversation_id:path>/story        GET                            retrieve_story
+/conversations/<conversation_id:path>/tracker      GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/conversations/<conversation_id:path>/trigger_intent POST                           trigger_intent
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2024-09-29 20:01:19 INFO     root  - Starting Rasa server on http://0.0.0.0:5005
+2024-09-29 20:01:19 DEBUG    rasa.core.utils  - Using the default number of Sanic workers (1).
+2024-09-29 20:01:19 DEBUG    rasa.telemetry  - Skipping telemetry reporting: no license hash found.
+2024-09-29 20:01:19 DEBUG    rasa.core.tracker_store  - Connected to InMemoryTrackerStore.
+2024-09-29 20:01:19 DEBUG    rasa.core.lock_store  - Connected to lock store 'InMemoryLockStore'.
+2024-09-29 20:01:19 DEBUG    rasa.core.nlg.generator  - Instantiated NLG to 'TemplatedNaturalLanguageGenerator'.
+2024-09-29 20:01:19 INFO     rasa.core.processor  - Loading model models/20240922-235954-damp-promo.tar.gz...
+2024-09-29 20:01:19 DEBUG    rasa.engine.storage.local_model_storage  - Extracted model to '/var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/tmpg93tlq6u'.
+2024-09-29 20:01:19 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' loading 'NLUMessageConverter.load' and kwargs: '{}'.
+2024-09-29 20:01:19 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' loading 'WhitespaceTokenizer.load' and kwargs: '{}'.
+2024-09-29 20:01:19 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' loading 'RegexFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:01:19 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RegexFeaturizer1' was requested for reading.
+2024-09-29 20:01:19 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' loading 'LexicalSyntacticFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:01:19 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_LexicalSyntacticFeaturizer2' was requested for reading.
+2024-09-29 20:01:19 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' loading 'CountVectorsFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:01:19 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_CountVectorsFeaturizer3' was requested for reading.
+2024-09-29 20:01:19 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' loading 'LanguageModelFeaturizer.load' and kwargs: '{}'.
+2024-09-29 20:01:19 DEBUG    rasa.nlu.featurizers.dense_featurizer.lm_featurizer  - Loading Tokenizer and Model for bert
+2024-09-29 20:01:19 DEBUG    urllib3.connectionpool  - Starting new HTTPS connection (1): huggingface.co:443
+2024-09-29 20:01:20 DEBUG    urllib3.connectionpool  - https://huggingface.co:443 "HEAD /bert-base-cased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+2024-09-29 20:01:20 DEBUG    urllib3.connectionpool  - https://huggingface.co:443 "HEAD /bert-base-cased/resolve/main/config.json HTTP/1.1" 200 0
+Some weights of the PyTorch model were not used when initializing the TF 2.0 model TFBertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing TFBertModel from a PyTorch model trained on another task or with another architecture (e.g. initializing a TFBertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing TFBertModel from a PyTorch model that you expect to be exactly identical (e.g. initializing a TFBertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of TFBertModel were initialized from the PyTorch model.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use TFBertModel for predictions without further training.
+2024-09-29 20:01:21 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' loading 'DIETClassifier.load' and kwargs: '{}'.
+2024-09-29 20:01:21 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_DIETClassifier5' was requested for reading.
+2024-09-29 20:01:21 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/tmpl305r5tx/train_DIETClassifier5/DIETClassifier.tf_model with finetune_mode=False...
+2024-09-29 20:01:21 DEBUG    rasa.nlu.classifiers.diet_classifier  - You specified 'DIET' to train entities, but no entities are present in the training data. Skipping training of entities.
+2024-09-29 20:01:21 DEBUG    rasa.nlu.classifiers.diet_classifier  - Following metrics will be logged during training:
+2024-09-29 20:01:21 DEBUG    rasa.nlu.classifiers.diet_classifier  -   t_loss (total loss)
+2024-09-29 20:01:21 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_acc (intent acc)
+2024-09-29 20:01:21 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_loss (intent loss)
+2024-09-29 20:01:21 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:01:21 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:01:25 DEBUG    rasa.utils.tensorflow.models  - Finished loading the model.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/utils/train_utils.py:530: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss.
+  rasa.shared.utils.io.raise_warning(
+2024-09-29 20:01:25 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' loading 'EntitySynonymMapper.load' and kwargs: '{}'.
+2024-09-29 20:01:25 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_EntitySynonymMapper6' was requested for reading.
+2024-09-29 20:01:25 DEBUG    rasa.nlu.extractors.entity_synonyms  - Failed to load ABCMeta from model storage. Resource 'train_EntitySynonymMapper6' doesn't exist.
+2024-09-29 20:01:25 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' loading 'ResponseSelector.load' and kwargs: '{}'.
+2024-09-29 20:01:25 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_ResponseSelector7' was requested for reading.
+2024-09-29 20:01:25 DEBUG    rasa.nlu.classifiers.diet_classifier  - Failed to load ABCMeta from model storage. Resource 'train_ResponseSelector7' doesn't exist.
+/Users/azhmylev/IdeaProjects/hm/architecture-sprint-5/rasa_env/lib/python3.9/site-packages/rasa/shared/utils/io.py:99: UserWarning: 'evaluate_every_number_of_epochs=20' is greater than 'epochs=1'. No evaluation will occur.
+2024-09-29 20:01:25 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_ResponseSelector7' was requested for reading.
+2024-09-29 20:01:25 DEBUG    rasa.nlu.selectors.response_selector  - Failed to load ResponseSelector from model storage. Resource 'train_ResponseSelector7' doesn't exist.
+2024-09-29 20:01:25 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' loading 'RegexMessageHandler.load' and kwargs: '{}'.
+2024-09-29 20:01:25 DEBUG    rasa.engine.graph  - Node 'domain_provider' loading 'DomainProvider.load' and kwargs: '{}'.
+2024-09-29 20:01:25 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'domain_provider' was requested for reading.
+2024-09-29 20:01:25 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' loading 'MemoizationPolicy.load' and kwargs: '{}'.
+2024-09-29 20:01:25 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_MemoizationPolicy0' was requested for reading.
+2024-09-29 20:01:25 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' loading 'RulePolicy.load' and kwargs: '{}'.
+2024-09-29 20:01:25 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RulePolicy1' was requested for reading.
+2024-09-29 20:01:25 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' loading 'TEDPolicy.load' and kwargs: '{}'.
+2024-09-29 20:01:25 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_TEDPolicy2' was requested for reading.
+2024-09-29 20:01:25 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /var/folders/mt/s4xr7d156dg2br84z62_4z2r0000gn/T/tmpl305r5tx/train_TEDPolicy2/ted_policy.tf_model with finetune_mode=False...
+2024-09-29 20:01:25 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:01:25 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+2024-09-29 20:01:29 DEBUG    rasa.utils.tensorflow.models  - Finished loading the model.
+2024-09-29 20:01:29 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' loading 'RuleOnlyDataProvider.load' and kwargs: '{}'.
+2024-09-29 20:01:29 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RulePolicy1' was requested for reading.
+2024-09-29 20:01:29 DEBUG    rasa.engine.graph  - Node 'select_prediction' loading 'DefaultPolicyPredictionEnsemble.load' and kwargs: '{}'.
+2024-09-29 20:01:29 INFO     root  - Rasa server is up and running.
+2024-09-29 20:01:29 INFO     root  - Enabling coroutine debugging. Loop id 13242492576.
+2024-09-29 20:01:35 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
+2024-09-29 20:01:35 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
+2024-09-29 20:01:35 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
+2024-09-29 20:01:35 DEBUG    rasa.core.tracker_store  - Could not find tracker for conversation ID 'shreyas'.
+2024-09-29 20:01:35 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - Starting a new session for conversation ID 'shreyas'.
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_session_start rasa_events=[<rasa.shared.core.events.SessionStarted object at 0x35c1ee1c0>, ActionExecuted(action: action_listen, policy: None, confidence: None)]
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-09-29 20:01:35 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x315747430>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x358b97100>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-09-29 20:01:35 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-09-29 20:01:35 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'приветствие', 'confidence': 0.4273204803466797} parse_data_text=Привет
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 4 events.
+2024-09-29 20:01:35 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-09-29 20:01:35 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x358b97100>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'utter_greet'
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user text: Привет | previous action name: action_listen
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'utter_greet'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_documentation' based on user intent.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - Predicted next action 'utter_greet' with confidence 1.00.
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x358b97cd0>]
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_greet rasa_events=[BotUttered('Привет! Как я могу вам помочь?', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_greet"}, 1727629295.392629)]
+2024-09-29 20:01:35 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x358b97100>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}]
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_suggest_tech_stack' based on user intent.
+2024-09-29 20:01:35 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-09-29 20:01:35 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-09-29 20:01:35 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-09-29 20:01:35 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-09-29 20:01:35 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
+2024-09-29 20:01:39 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
+2024-09-29 20:01:39 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
+2024-09-29 20:01:39 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
+2024-09-29 20:01:39 DEBUG    rasa.core.tracker_store  - Recreating tracker for id 'shreyas'
+2024-09-29 20:01:39 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x315747460>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x358aac9d0>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-09-29 20:01:39 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-09-29 20:01:39 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'микросервисы', 'confidence': 0.14258264005184174} parse_data_text=Что такое микросервисы
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 9 events.
+2024-09-29 20:01:39 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-09-29 20:01:39 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x358aac9d0>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.memoization  - There is no memorised next action
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user text: Что такое микросервисы | previous action name: action_listen
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: микросервисы | previous action name: action_listen
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_microservice_info'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_containerization' based on user intent.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - Predicted next action 'action_microservice_info' with confidence 1.00.
+2024-09-29 20:01:39 DEBUG    rasa.core.actions.action  - Calling action endpoint to run action 'action_microservice_info'.
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x358bd8100>]
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_microservice_info rasa_events=[BotUttered('Микросервисная архитектура — это подход к разработке, когда приложение разделяется на независимые сервисы, взаимодействующие между собой.', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_microservices", "template": "utter_microservices"}, 1727629299.69697)]
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-09-29 20:01:39 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x358aac9d0>}, targets: ['select_prediction'] and ExecutionContext(model_id='69ea12979ce4474280861a76a21ed825', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy0' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_microservice_info'}}]
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy1' running 'RulePolicy.predict_action_probabilities'.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: микросервисы | previous action name: action_listen
+[state 4] user intent: микросервисы | previous action name: action_microservice_info
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_monolith' based on user intent.
+2024-09-29 20:01:39 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-09-29 20:01:39 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-09-29 20:01:39 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-09-29 20:01:39 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-09-29 20:01:39 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
 
 
